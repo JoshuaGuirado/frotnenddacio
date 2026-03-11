@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-br" data-theme="cupcake">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arquivo Confuso da Computação</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-base-100 min-h-screen flex flex-col">
+
+    <div class="navbar bg-base-300 shadow-md sticky top-0 z-50">
+        <div class="flex-1">
+            <a href="#" class="btn btn-ghost text-xl font-bold">Arquivo da Computação</a>
+        </div>
+        <div class="flex-none hidden lg:flex">
+            <ul class="menu menu-horizontal px-1 font-semibold">
+                <li><a href="#fatos">Fatos Históricos</a></li>
+                <li><a href="#bugs">Bugs & Caos</a></li>
+                <li><a href="#tabela">Tabela Inútil</a></li>
+                <li><a href="#contato">Envie Algo</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="hero bg-base-200 py-12">
+        <div class="hero-content text-center">
+            <div class="max-w-2xl">
+                <h1 class="text-4xl font-bold">Fatos Inúteis (Mas Incríveis) da Computação</h1>
+                <p class="py-6">Uma coletânea de fatos históricos, bugs absurdos e informações que não vão melhorar o seu código... mas vão melhorar sua aula.</p>
+            </div>
+        </div>
+    </div>
+
+    <main class="container mx-auto p-6 flex-grow space-y-16">
+
+        <section id="fatos">
+            <h2 class="text-3xl font-bold mb-6 border-b-2 border-primary pb-2">Pioneiros & Nomes Estranhos</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="card bg-base-100 shadow-xl border border-base-300">
+                    <div class="card-body">
+                        <h3 class="card-title text-primary">Ada Lovelace</h3>
+                        <p>Considerada a primeira programadora da história. Ela escreveu um algoritmo para a Máquina Analítica no século XIX.</p>
+                    </div>
+                </div>
+                <div class="card bg-base-100 shadow-xl border border-base-300">
+                    <div class="card-body">
+                        <h3 class="card-title text-primary">Spam vem de presunto</h3>
+                        <p>O termo "spam" vem de um esquete do <strong>Monty Python</strong> onde a palavra (uma marca de presunto enlatado) era repetida incessantemente.</p>
+                    </div>
+                </div>
+                <div class="card bg-base-100 shadow-xl border border-base-300">
+                    <div class="card-body">
+                        <h3 class="card-title text-primary">Bluetooth Viking</h3>
+                        <p>A tecnologia foi nomeada em homenagem ao rei <em>Harald "Bluetooth" Gormsson</em>, que unificou a Dinamarca.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="bugs">
+            <h2 class="text-3xl font-bold mb-6 border-b-2 border-secondary pb-2">Bugs, Easter Eggs e Caos</h2>
+            <div class="space-y-4">
+                
+                <div class="collapse collapse-arrow bg-base-200">
+                    <input type="radio" name="my-accordion-2" checked="checked" /> 
+                    <div class="collapse-title text-xl font-medium text-secondary">O Primeiro Bug Real (1947)</div>
+                    <div class="collapse-content"> 
+                        <p>O famoso inseto encontrado no computador Mark II em 1947 era, literalmente, uma mariposa de verdade que entrou nos circuitos.</p>
+                    </div>
+                </div>
+
+                <div class="collapse collapse-arrow bg-base-200">
+                    <input type="radio" name="my-accordion-2" /> 
+                    <div class="collapse-title text-xl font-medium text-secondary">O Bug do Ariane 5 (1996)</div>
+                    <div class="collapse-content"> 
+                        <p>O foguete Ariane 5 explodiu em 37 segundos por causa de uma conversão de número de 64 bits para 16 bits. Custo do erro: 370 milhões de dólares.</p>
+                    </div>
+                </div>
+
+                <div class="collapse collapse-arrow bg-base-200">
+                    <input type="radio" name="my-accordion-2" /> 
+                    <div class="collapse-title text-xl font-medium text-secondary">Excel 97 e o Simulador de Voo</div>
+                    <div class="collapse-content"> 
+                        <p>O Microsoft Excel 97 escondia um jogo 3D estilo simulador de voo dentro da planilha, acessível através de comandos bizarros.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="tabela">
+            <h2 class="text-3xl font-bold mb-6 border-b-2 border-accent pb-2">Tabela do Caos Digital</h2>
+            <div class="overflow-x-auto bg-base-100 rounded-lg shadow-xl border border-base-300">
+                <table class="table table-zebra w-full text-center">
+                    <thead class="bg-base-300 text-base-content text-lg">
+                        <tr>
+                            <th>Evento</th>
+                            <th>Nível de Caos</th>
+                            <th>Custo / Impacto</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold">Ariane 5</td>
+                            <td>Explosivo 💥</td>
+                            <td>US$ 370 milhões</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold">Bug do Pentium</td>
+                            <td>Matemático 🧮</td>
+                            <td>US$ 475 milhões</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold">Y2K (Bug do Milênio)</td>
+                            <td>Psicológico 🤯</td>
+                            <td>Bilhões gastos, nada aconteceu</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold">Senha "123456"</td>
+                            <td>Crítico 🔓</td>
+                            <td>Vergonha mundial</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="contato" class="flex justify-center">
+            <div class="card w-full max-w-lg bg-base-200 shadow-xl">
+                <div class="card-body">
+                    <h2 class="card-title text-2xl mb-4">Envie um Fato Inútil ou Bug</h2>
+                    <form class="space-y-4">
+                        <div class="form-control">
+                            <label class="label"><span class="label-text font-bold">Seu Nome</span></label>
+                            <input type="text" placeholder="Ex: Alan Turing" class="input input-bordered w-full" />
+                        </div>
+                        <div class="form-control">
+                            <label class="label"><span class="label-text font-bold">Categoria</span></label>
+                            <select class="select select-bordered w-full">
+                                <option>Bug Absurdo</option>
+                                <option>Easter Egg</option>
+                                <option>Curiosidade Histórica</option>
+                            </select>
+                        </div>
+                        <div class="form-control">
+                            <label class="label"><span class="label-text font-bold">A Curiosidade</span></label>
+                            <textarea class="textarea textarea-bordered h-24" placeholder="Descreva o fato aqui..."></textarea>
+                        </div>
+                        <button type="button" class="btn btn-primary w-full mt-4">Enviar para o Arquivo</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer items-center p-6 bg-neutral text-neutral-content mt-10">
+        <aside class="items-center grid-flow-col">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="currentColor" class="hidden sm:block"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg> 
+            <p><strong>Arquivo Confuso da Computação © 2026</strong><br>Instituto Internacional de Informações Desnecessárias.</p>
+        </aside> 
+        <nav class="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
+            <p>Contato: <em>inutilidades@caosdigital.com</em></p>
+        </nav>
+    </footer>
+
+</body>
+</html>
