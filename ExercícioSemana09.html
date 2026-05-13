@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercícios de JS</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    .exercicio {
+      background-color: white;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 30px;
+    }
+
+    h2 {
+      color: #444;
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+      margin-bottom: 4px;
+    }
+
+    input, select {
+      padding: 6px;
+      width: 250px;
+      font-size: 14px;
+    }
+
+    button {
+      margin-top: 12px;
+      padding: 8px 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    .resultado {
+      margin-top: 12px;
+      padding: 10px;
+      border-radius: 4px;
+      font-weight: bold;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Exercícios de JavaScript</h1>
+
+<!-- ==================== EXERCÍCIO 01 ==================== -->
+<div class="exercicio">
+  <h2>Exercício 01 - Validador de CPF</h2>
+
+  <label>Digite o CPF:</label>
+  <input type="text" id="cpf" placeholder="000.000.000-00" maxlength="14">
+
+  <br>
+  <button onclick="validarCPF()">Validar</button>
+
+  <div class="resultado" id="resultadoCPF"></div>
+</div>
+
+<!-- ==================== EXERCÍCIO 02 ==================== -->
+<div class="exercicio">
+  <h2>Exercício 02 - Conversor de Temperatura</h2>
+
+  <label>Celsius:</label>
+  <input type="number" id="celsius" placeholder="Digite em °C" step="0.1" oninput="converteCelsius()">
+
+  <label>Fahrenheit:</label>
+  <input type="number" id="fahrenheit" placeholder="Digite em °F" step="0.1" oninput="converteFahrenheit()">
+</div>
+
+<!-- ==================== EXERCÍCIO 03 ==================== -->
+<div class="exercicio">
+  <h2>Exercício 03 - Média Escolar</h2>
+
+  <label>Nome do aluno:</label>
+  <input type="text" id="nomeAluno" placeholder="Digite o nome">
+
+  <label>Nota 1:</label>
+  <input type="number" id="nota1" min="0" max="10" step="0.1">
+
+  <label>Nota 2:</label>
+  <input type="number" id="nota2" min="0" max="10" step="0.1">
+
+  <label>Nota 3:</label>
+  <input type="number" id="nota3" min="0" max="10" step="0.1">
+
+  <br>
+  <button onclick="calcularMedia()">Calcular</button>
+
+  <div class="resultado" id="resultadoMedia"></div>
+</div>
+
+<!-- ==================== EXERCÍCIO 04 ==================== -->
+<div class="exercicio">
+  <h2>Exercício 04 - Taxas Infinity Bank</h2>
+
+  <label>Bandeira do cartão:</label>
+  <select id="bandeira">
+    <option value="">Selecione...</option>
+    <option value="visa">Visa</option>
+    <option value="master">Mastercard</option>
+    <option value="elo">Elo</option>
+  </select>
+
+  <label>Valor da venda (R$):</label>
+  <input type="number" id="valorVenda" min="0" step="0.01" placeholder="Ex: 100.00">
+
+  <label>Número de parcelas:</label>
+  <select id="parcelas">
+    <option value="1">1x</option>
+    <option value="2">2x</option>
+    <option value="3">3x</option>
+    <option value="4">4x</option>
+    <option value="6">6x</option>
+    <option value="12">12x</option>
+  </select>
+
+  <br>
+  <button onclick="calcularBank()">Simular</button>
+
+  <div class="resultado" id="resultadoBank"></div>
+</div>
+
+<script>
+
+  // ======= EXERCÍCIO 01 - VALIDADOR DE CPF =======
+
+  function validarCPF() {
+    var cpf = document.getElementById("cpf").value;
+    var resultado = document.getElementById("resultadoCPF");
+
+    // remove pontos e traço
+    cpf = cpf.replace(/\D/g, "");
+
+    resultado.style.display = "block";
+
+    if (cpf.length != 11) {
+      resultado.style.backgroundColor = "#ffcccc";
+      resultado.style.color = "red";
+      resultado.innerHTML = "CPF inválido! Deve ter 11 dígitos.";
+      return;
+    }
+
+    // verifica se todos os números são iguais
+    if (/^(\d)\1+$/.test(cpf)) {
+      resultado.style.backgroundColor = "#ffcccc";
+      resultado.style.color = "red";
+      resultado.innerHTML = "CPF inválido!";
+      return;
+    }
+
+    // calcula o 1º dígito verificador
+    var soma = 0;
+    for (var i = 0; i < 9; i++) {
+      soma += Number(cpf[i]) * (10 - i);
+    }
+    var resto = (soma * 10) % 11;
+    if (resto == 10) resto = 0;
+
+    if (resto != Number(cpf[9])) {
+      resultado.style.backgroundColor = "#ffcccc";
+      resultado.style.color = "red";
+      resultado.innerHTML = "CPF inválido!";
+      return;
+    }
+
+    // calcula o 2º dígito verificador
+    soma = 0;
+    for (var i = 0; i < 10; i++) {
+      soma += Number(cpf[i]) * (11 - i);
+    }
+    resto = (soma * 10) % 11;
+    if (resto == 10) resto = 0;
+
+    if (resto != Number(cpf[10])) {
+      resultado.style.backgroundColor = "#ffcccc";
+      resultado.style.color = "red";
+      resultado.innerHTML = "CPF inválido!";
+      return;
+    }
+
+    resultado.style.backgroundColor = "#ccffcc";
+    resultado.style.color = "green";
+    resultado.innerHTML = "CPF válido!";
+  }
+
+
+  // ======= EXERCÍCIO 02 - CONVERSOR DE TEMPERATURA =======
+
+  function converteCelsius() {
+    var c = document.getElementById("celsius").value;
+    var f = (c * 9/5) + 32;
+    document.getElementById("fahrenheit").value = f.toFixed(2);
+  }
+
+  function converteFahrenheit() {
+    var f = document.getElementById("fahrenheit").value;
+    var c = (f - 32) * 5/9;
+    document.getElementById("celsius").value = c.toFixed(2);
+  }
+
+
+  // ======= EXERCÍCIO 03 - MÉDIA ESCOLAR =======
+
+  function calcularMedia() {
+    var nome = document.getElementById("nomeAluno").value;
+    var nota1 = Number(document.getElementById("nota1").value);
+    var nota2 = Number(document.getElementById("nota2").value);
+    var nota3 = Number(document.getElementById("nota3").value);
+
+    var media = (nota1 + nota2 + nota3) / 3;
+    var resultado = document.getElementById("resultadoMedia");
+
+    resultado.style.display = "block";
+
+    if (media >= 7) {
+      resultado.style.backgroundColor = "#cce5ff";
+      resultado.style.color = "blue";
+      resultado.innerHTML = nome + " - Média: " + media.toFixed(2) + " - Aprovado!";
+    } else if (media >= 4) {
+      var falta = 10 - media;
+      resultado.style.backgroundColor = "#ccffcc";
+      resultado.style.color = "green";
+      resultado.innerHTML = nome + " - Média: " + media.toFixed(2) + " - Exame Final! Faltam " + falta.toFixed(2) + " pontos para 10.";
+    } else {
+      resultado.style.backgroundColor = "#ffcccc";
+      resultado.style.color = "red";
+      resultado.innerHTML = nome + " - Média: " + media.toFixed(2) + " - Reprovado!";
+    }
+  }
+
+
+  // ======= EXERCÍCIO 04 - INFINITY BANK =======
+
+  function calcularBank() {
+    var bandeira = document.getElementById("bandeira").value;
+    var venda = Number(document.getElementById("valorVenda").value);
+    var parcelas = Number(document.getElementById("parcelas").value);
+    var resultado = document.getElementById("resultadoBank");
+
+    if (bandeira == "" || venda <= 0) {
+      alert("Preencha todos os campos!");
+      return;
+    }
+
+    var taxaBandeira;
+    switch (bandeira) {
+      case "visa":
+        taxaBandeira = venda * 0.02;
+        break;
+      case "master":
+        taxaBandeira = venda * 0.0185;
+        break;
+      case "elo":
+        taxaBandeira = venda * 0.03;
+        break;
+    }
+
+    var jurosTotais = venda * (0.0035 * parcelas);
+    var taxaMensal = 12.50 * parcelas;
+    var total = venda + taxaBandeira + jurosTotais + taxaMensal;
+    var valorParcela = total / parcelas;
+
+    resultado.style.display = "block";
+    resultado.style.backgroundColor = "#ccffcc";
+    resultado.style.color = "green";
+    resultado.innerHTML =
+      "Taxa da bandeira: R$ " + taxaBandeira.toFixed(2) + "<br>" +
+      "Juros totais: R$ " + jurosTotais.toFixed(2) + "<br>" +
+      "Taxa mensal: R$ " + taxaMensal.toFixed(2) + "<br>" +
+      "Valor total: R$ " + total.toFixed(2) + "<br>" +
+      "Valor de cada parcela: R$ " + valorParcela.toFixed(2);
+  }
+
+</script>
+
+</body>
+</html>
